@@ -42,7 +42,7 @@ const formDataSchema = new mongoose.Schema({
       type: String,
       required: true,
     },
-    IfscCode: {
+    ifsccode: {
       type: String,
       required: true,
     },

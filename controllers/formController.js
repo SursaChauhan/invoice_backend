@@ -52,7 +52,7 @@ console.log(req.body);
         city,
         street,
         country,
-        IfscCode,
+        ifsccode,
         accno,
         reference  });
     await mongoData.save();

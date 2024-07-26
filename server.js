@@ -4,8 +4,9 @@ const bodyParser = require('body-parser');
 const { connectMongoDB, connectPostgres } = require('./config/database.js');
 const formRoutes = require('./routes/formRoutes.js');
 const cors =require('cors');
-
+const dotenv = require('dotenv')
 // Initialize Express
+dotenv.config();
 const app = express();
 
 // Middleware

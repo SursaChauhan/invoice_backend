@@ -1,11 +1,12 @@
 // config/database.js
 const mongoose = require('mongoose');
 const { Sequelize } = require('sequelize');
-
+const dotenv =require('dotenv')
 // MongoDB connection
+dotenv.config();
 const connectMongoDB = async () => {
   try {
-    await mongoose.connect('mongodb+srv://surendra:singh123@cluster0.ztxomvh.mongodb.net/Invoices');
+    await mongoose.connect(process.env.MONGO_URL);
     console.log('Connected to MongoDB');
   } catch (error) {
     console.error('MongoDB connection error:', error);
@@ -13,7 +14,7 @@ const connectMongoDB = async () => {
 };
 
 // PostgreSQL connection
-const sequelize = new Sequelize('postgres://postgres:techy_singh@localhost:5432/invoices', {
+const sequelize = new Sequelize(process.env.Postgre_Url, {
     logging: console.log,  // This will log SQL queries to the console
   });
 // Test PostgreSQL connection
