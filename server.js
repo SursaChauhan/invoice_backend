@@ -15,10 +15,10 @@ app.use(bodyParser.json());
 
 // Connect to databases
 connectMongoDB();
-connectPostgres();
+// connectPostgres();
 
 // Sync PostgreSQL models
-require('./models/PostgresModel.js').sequelize.sync();
+// require('./models/PostgresModel.js').sequelize.sync();
 
 // Set up routes
 app.get('/',(req,res)=>{

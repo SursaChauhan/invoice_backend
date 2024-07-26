@@ -58,22 +58,22 @@ console.log(req.body);
     await mongoData.save();
 
     // // Save to PostgreSQL
-    const query = `
-    INSERT INTO "FormData"  (
-      currency, basicamt, taxamt, advancepaid, netpayable, 
-      alternatepayee1, alternatepayee2, city, street, country, 
-      ifsccode, accno, reference,"createdAt","updatedAt"
-    ) VALUES (
-      $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, NOW(),NOW()
-    )
-  `;
-  const values = [
-    currency, basicamt, taxamt, advancepaid, netpayable,
-    alternatepayee1, alternatepayee2, city, street, country,
-    ifsccode, accno, reference
-  ];
+//     const query = `
+//     INSERT INTO "FormData"  (
+//       currency, basicamt, taxamt, advancepaid, netpayable, 
+//       alternatepayee1, alternatepayee2, city, street, country, 
+//       ifsccode, accno, reference,"createdAt","updatedAt"
+//     ) VALUES (
+//       $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, NOW(),NOW()
+//     )
+//   `;
+//   const values = [
+//     currency, basicamt, taxamt, advancepaid, netpayable,
+//     alternatepayee1, alternatepayee2, city, street, country,
+//     ifsccode, accno, reference
+//   ];
 
-  await pool.query(query, values);
+//   await pool.query(query, values);
     
 
     res.status(201).json({ message: 'Data saved successfully in both databases' });
