@@ -12,10 +12,18 @@ const connectMongoDB = async () => {
     console.error('MongoDB connection error:', error);
   }
 };
+const DB_HOST = process.env.DB_HOST;
+const DB_PORT = process.env.DB_PORT;
+const DB_NAME = process.env.DB_NAME;
+const DB_USER = process.env.DB_USER;
+const DB_PASSWORD = process.env.DB_PASSWORD;
 
+const postgresUrl = `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`;
 // PostgreSQL connection
-const sequelize = new Sequelize(process.env.Postgre_Url, {
+const sequelize = new Sequelize(postgresUrl, {
     logging: console.log,  // This will log SQL queries to the console
+    dialect: 'postgres',
+  protocol: 'postgres',
   });
 // Test PostgreSQL connection
 const connectPostgres = async () => {
